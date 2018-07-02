@@ -1,54 +1,152 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Da-Hyeong Yun</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
         }
 
         header {
-          float: left;
-          font-size: 18px;
-          font-weight: bold;
-          width: 10%;
+            float: left;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 15%;
+            height: 60px;
+            border: 1px solid red; /*시야용 구분선*/
         }
 
         nav {
-          float: left;
-          width: 90%;
+            float: left;
+            width: 84%;
+            height: 60px;
+            border: 1px solid red; /*시야용 구분선*/
         }
 
+        nav a:link {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: block;
+            
+        }
+        
+        nav a:visited {
+            display: block;
+            color: black;
+            text-decoration: none;
+        }
+
+        #top {
+            border: 1px solid blue; /*시야용 구분선*/
+            width: 100%;
+            height: 70px;
+        }
+        
+        .menubar li {
+            float: right;
+            list-style: none;
+            padding: 10px;
+        }
+
+
+        article {
+            float: clear;
+            width: 100%;
+            padding: 40px;
+            text-align: left;
+        }
+        
+        #profile {
+            text-align: center;
+        }
+        
         footer {
-          color: gray;
-          text-align: left;
+            float: left;
+            color: gray;
+            text-align: left;
+            height: 50px;
+            width: 100%
+        }
+        
+        #copyright {
+            float: left;
+            width: 49%;    
+        }
+        
+        #contactIcon {
+            float: left;
+            width: 50%;  
+            text-align: right;
         }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
+   
     <div id="top">
-      <header>
-        Dahyeong
-      </header>
+        <header>
+            <p><b>Dahyeong Yun</b></p>
+        </header>
 
-      <nav>
-        <ul>
-          <li><a href="#">HOME</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Project</a></li>
-          <li><a href="">Contact</a></li>
-        </ul>
-      </nav>
+        <nav>
+            <ul class="menubar">
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">PROJECT</a></li>
+                <li><a href="#">HOME</a></li>
+                
+            </ul>
+        </nav>
     </div>
-      <article class="contents">
+   
+    <hr>
+    
+    <article class="contents">
+    
+        <div id="profile">
+            <img src="" alt="Profile Picture">
+            <h1>안녕하세요 :) 윤다형 입니다.</h1>
+            <span></span>
+        </div>
+        <hr style="width: 700px;">
+        
+        <div id="resume">
+            <h3>About me</h3>
+            <ul>
+                <li>경력
+                    <ul>
+                        <li>패스트캠퍼스</li>
+                    </ul>
+                </li>
+                <li>학력
+                    <ul>
+                        <li>인하대학교</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </article>
+    
+    <br>
+    <hr>
+    
+    <footer>
+        <div id="copyright">
+            Copyright All reserved.<br>
+        </div>
+        <div id="contactIcon">
+            <img src="" alt="facebook">
+            <img src="" alt="github">
+            <img src="" alt="gmail">
+            <img src="" alt="linkedin">
+        </div>
+    </footer>
+</body>
 
-      </article>
-
-      <footer>
-        <p>Copyright All reserved</p>
-
-      </footer>
-  </body>
 </html>
