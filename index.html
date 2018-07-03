@@ -33,9 +33,11 @@
         <div id="profile">
             <img src="/profile.jpg" alt="Profile Picture" id="profilePicture">
             <h1 style="color:rgb(150, 150, 150)">안녕하세요 :)
-            <span style="color:rgb(0, 0, 0)">개발자</span> <!-- 타이핑 효과, 자바스크립트로 추가 -->
-             윤다형 입니다.</h1>
-            <span></span>
+            <span id="adjective" style="color:rgb(0, 0, 0)">개발자</span> <!-- 타이핑 효과, 자바스크립트로 추가 -->
+            <span id="underscore" style="color:rgb(0, 0, 0)">_</span>
+             윤다형 입니다.
+           </h1>
+            <!-- <button type="button" name="button" onclick="test()">test</button> -->
         </div>
         <hr>
 
@@ -73,4 +75,33 @@
     </footer>
 </body>
 
+<script type="text/javascript">
+    // 커서 깜빡임
+    var cursorVisible = true;
+    var cursorBlink = function () {
+        document.getElementById("underscore").innerHTML = "&nbsp&nbsp";
+        if(cursorVisible) {
+        this.cursorVisible =  false;
+      } else {
+        document.getElementById("underscore").innerHTML = "_";
+        this.cursorVisible =  true;
+      }
+    };
+    window.setInterval(cursorBlink,500);
+
+    // 형용사 변경
+    // var adjective = document.getElementById("adjective").innerHTML;
+    // console.log(adjective.length);
+    // var adj = function() {
+    //   if(adjective.length==3) {
+    //     document.getElementById("adjective").innerHTML = adjective.substring(0,2);
+    //   } else if(adjective.length==2) {
+    //     document.getElementById("adjective").innerHTML = adjective.substring(0,1);
+    //   } else {
+    //     document.getElementById("adjective").innerHTML = adjective.substring(0,0);
+    //   }
+    // }
+    // window.setInterval(adj, 120);
+
+</script>
 </html>
