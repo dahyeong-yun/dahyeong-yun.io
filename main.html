@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="kr">
+	<head>
+	<meta charset="UTF-8">
+	<title>http://www.blueb.co.kr</title>
+
+// 스타일 태그 시작
+<style>
+/* @import url(https://fonts.googleapis.com/css?family=Khula:700); */
+
+body {
+  background: #111;
+}
+.hidden {
+  opacity:0;
+}
+.console-container {
+
+  font-family:Khula;
+  font-size:4em;
+  text-align:center;
+  height:200px;
+  width:600px;
+  display:block;
+  position:absolute;
+  color:white;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+.console-underscore {
+  display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}
+</style>
+</head>
+
+// 본문
+<body>
+
+<div class='console-container'>
+  <span id='text'></span>
+  <div class='console-underscore' id='console'>_</div>
+</div>
+
+
+<script type="text/javascript">
+// function([string1, string2],target id,[color1,color2])
+// 1. consoleText의 매개변수
+// words, 첫번째를 문장 배열로 받는다.
+// id, 두번째를 타겟 아이디 받는다. 여기서는 상단의 span id
+// colors, 세번째를 색깔로 받는다.
+
+ consoleText(['Welcome to BlueB', 'Console Text', 'Web Developer'], 'text',['tomato','rebeccapurple','lightblue']);
+
+function consoleText(words, id, colors) {
+  if (colors === undefined) colors = ['#fff']; // 색 지정이 안되면 #fff로 지정
+  var visible = true; // bool type
+  var con = document.getElementById('console'); // 본문에서 _를 담고 있는 div id를 불러오는 변수
+
+  // 인터벌 처리를 위한 변수
+  var letterCount = 1;
+  var x = 1;
+  var waiting = false;
+
+  var target = document.getElementById(id); // 두번째 매개변수의 엘리먼트 아이디
+  target.setAttribute('style', 'color:' + colors[0])
+
+  window.setInterval(
+  // 인터벌의 첫번째 변수
+    function() {
+    if (letterCount === 0 && waiting === false) { // 최초 선언시 letterCount가 1이므로 else로 넘어간다.
+      waiting = true;
+      target.innerHTML = words[0].substring(0, letterCount)
+      window.setTimeout(function() {
+        var usedColor = colors.shift();
+        colors.push(usedColor);
+        var usedWord = words.shift();
+        words.push(usedWord);
+        x = 1;
+        target.setAttribute('style', 'color:' + colors[0])
+        letterCount += x;
+        waiting = false;
+      }, 1000)
+    } else if (letterCount === words[0].length + 1 && waiting === false) { // 첫번째 단어가 전부 출력되면 시작
+      waiting = true;
+      window.setTimeout(function() {
+        x = -1;
+        letterCount += x;
+        waiting = false;
+      }, 1000)  //문장 체인지 속도
+    } else if (waiting === false) { // 첫번째에 이게 실행 된다. 첫번째 단어가 전부 출력될때까지 실행된다.
+      target.innerHTML = words[0].substring(0, letterCount) // 0번 인덱스부터 1번 인덱스까지 담긴다.
+      letterCount += x;
+    }
+  }, 120) //타이핑속도
+
+
+
+  // 0.4초마다 _가 깜빡이게 하는 인터벌
+  window.setInterval(function() {
+    if (visible === true) {
+      con.className = 'console-underscore hidden'
+      visible = false;
+
+    } else {
+      con.className = 'console-underscore'
+      visible = true;
+    }
+  }, 400)
+}
+
+</script>
+</body>
+</html>
