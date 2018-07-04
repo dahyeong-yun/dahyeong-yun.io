@@ -33,7 +33,7 @@
         <div id="profile">
             <img src="profile.jpg" alt="Profile Picture" id="profilePicture">
             <h1 style="color:rgb(150, 150, 150)">안녕하세요 :)
-            <span id="adjective" style="color:rgb(0, 0, 0)">개발자</span> <!-- 타이핑 효과, 자바스크립트로 추가 -->
+            <span id="adjective" style="color:rgb(0, 0, 0)"></span> <!-- 타이핑 효과, 자바스크립트로 추가 -->
             <span id="underscore" style="color:rgb(0, 0, 0)">_</span>
              윤다형 입니다.
            </h1>
@@ -90,18 +90,31 @@
     window.setInterval(cursorBlink,500);
 
     // 형용사 변경
-    // var adjective = document.getElementById("adjective").innerHTML;
-    // console.log(adjective.length);
-    // var adj = function() {
-    //   if(adjective.length==3) {
-    //     document.getElementById("adjective").innerHTML = adjective.substring(0,2);
-    //   } else if(adjective.length==2) {
-    //     document.getElementById("adjective").innerHTML = adjective.substring(0,1);
-    //   } else {
-    //     document.getElementById("adjective").innerHTML = adjective.substring(0,0);
+    var descMe = [ "웹 풀스택이고 싶은 개발자", "가끔 시도 쓰는", "진지함이 우습지 않았으면 하는" ];
+    var adjective = document.getElementById("adjective");
+    var i = descMe[0].length;
+    var j = 0;
+    //   }  else {
+
+    //     adjective.innerHTML = adjective.substring(0,0);
     //   }
     // }
-    // window.setInterval(adj, 120);
+
+    window.setInterval(
+      function() {
+        if (adjective.innerHTML.length<i) {
+
+            j++;
+            adjective.innerHTML = descMe[0].substring(0,j);
+
+        } else if(adjective.innerHTML.length==i) {
+            var a = setInterval(function(){
+              j=0;
+              adjective.innerHTML = descMe[0].substring(0,j);
+            }, 1000);
+            clearInterval(a);
+        }
+    }, 160);
 
 </script>
 </html>
