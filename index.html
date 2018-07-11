@@ -11,33 +11,23 @@
 </head>
 
 <body>
-
-    <div id="top">
-        <header>
-            <p><a href=""><b>Dahyeong Yun</b></a></p>
-        </header>
-
-        <nav>
-            <ul class="menubar">
-                <li><a onclick="
-                  fetch('contact').then(function(response) {
-                    response.text().then(function(text){
-                      document.querySelector('h3.heading').innerHTML = text;
-                    })
-                  });
-                  ">CONTACT</a></li>
-                <li><a href="#">PROJECT</a></li>
-                <li><a href="#">HOME</a></li>
-
-            </ul>
-        </nav>
-    </div>
+    <header>
+      <ul class="menubar">
+          <li><a onclick="
+            fetch('contact').then(function(response) {
+              response.text().then(function(text){
+                document.querySelector('#content_heading').innerHTML = text;
+              })
+            });">CONTACT</a></li>
+          <li><a href="#">PROJECT</a></li>
+          <li><a href="#">ABOUT ME</a></li>
+      </ul>
+    </header>
 
     <hr>
 
     <article class="contents">
-
-        <div id="profile">
+        <div id="article_intro">
             <img src="profile.jpg" alt="Profile Picture" id="profilePicture">
             <h1 style="color:#4A6482">안녕하세요 :)<br />
             <span id="adjective" style="color:#1F2A37"></span> <!-- 타이핑 효과, 자바스크립트로 추가 -->
@@ -47,9 +37,8 @@
             <!-- <button type="button" name="button" onclick="test()">test</button> -->
         </div>
         <hr>
-
-        <div id="resume" style="line-height:2.3em">
-            <h3 class="heading">About me</h3>
+        <div id="article_content" style="line-height:2.3em">
+            <h3 id="content_heading">About me</h3>
             <p> '18년 5월 부터 본격적으로 개발을 공부하기 시작했습니다. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <ul>
                 <li>경력
@@ -74,7 +63,7 @@
             Copyright All reserved.<br>
         </div>
         <div id="contactIcon">
-            <img src="" alt="facebook">
+            <img src="" alt="facebook" href="">
             <img src="" alt="github">
             <img src="" alt="gmail">
             <img src="" alt="linkedin">
@@ -123,6 +112,8 @@
         }
     }, 160);
 
-
+    //
+    function contactLink() {
+    }
 </script>
 </html>
