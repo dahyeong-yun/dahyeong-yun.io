@@ -1,3 +1,7 @@
+* {
+  /* border: 1px solid red; */
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
@@ -70,7 +74,7 @@ article {
 }
 
 #resume {
-  padding: 40px 200px;
+
   /* 풀스크린에서 좌우 600oxl */
 }
 
