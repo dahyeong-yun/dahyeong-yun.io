@@ -13,14 +13,6 @@
 <body>
     <header>
       <ul class="menubar">
-          <li><a onclick="
-            fetch('contact').then(function(response) {
-              response.text().then(function(text){
-                document.querySelector('#content_heading').innerHTML = text;
-              })
-            });">CONTACT</a></li>
-          <li><a href="#">PROJECT</a></li>
-          <li><a href="#">ABOUT ME</a></li>
       </ul>
     </header>
 
@@ -72,6 +64,22 @@
 </body>
 
 <script type="text/javascript">
+    // ajax
+    function fetchDoc(name) {
+      fetch(name).then(function(response) {
+        response.text().then(function(text){
+          document.querySelector('#content_heading').innerHTML = text;
+        })
+      });
+    }
+
+    // 메뉴바
+    fetch('menu').then(function(response) {
+      response.text().then(function(text){
+
+        document.querySelector('.menubar').innerHTML = text;
+      })
+    });
     // 커서 깜빡임
     var cursorVisible = true;
     var cursorBlink = function () {
