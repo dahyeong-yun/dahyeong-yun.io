@@ -1,4 +1,0 @@
-<li><a onclick="fetchDoc('contact')">CONTACT</a></li>
-<li><a href="#">PROJECT</a></li>
-<li><a href="/content/bootstrap.html">Bootstrap</a></li>
-<li><a href="#">ABOUT ME</a></li>
